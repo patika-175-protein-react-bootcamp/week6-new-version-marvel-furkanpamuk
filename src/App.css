@@ -1,0 +1,300 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+body{
+  background: #222 ;
+}
+
+/* scrollbar styles */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #222;
+
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #f00;
+  border-radius: 2px;
+}
+
+/* Container class was created to center the content on the page when zoomed out. */
+.container {
+  width: 1520px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* header styles */
+header{
+  position: relative; 
+  margin-top: -80px !important;
+}
+header :last-child {
+  position: absolute;
+  bottom : -10px;
+}
+
+/* SearchBar styles */
+.searchAndLang {
+  padding: 0 280px;
+}
+.searchHeader {
+  color: #fff;
+
+}
+.context {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.search {
+  padding-left: 26px;
+  color: #fff;
+  width: 609px;
+  height: 63px;
+  background-color: transparent;
+  border: 1px solid #F4F4F4;
+}
+.langBox {
+  display: flex;
+  margin-left: 330px;
+  cursor: pointer;
+  
+}
+.results {
+  padding-left: 26px;
+  color: #fff;
+  position: absolute;
+  width: 609px;
+  max-height: 222px;
+  top : 100%;
+  left: 0;
+  background-color:#434343;
+  overflow: hidden;
+  overflow-y: scroll;
+  z-index: 100000;
+}
+.results > p {
+  cursor: pointer;
+}
+.box {
+  width: 64px;
+  height: 63px;
+  background: #7E7E7E;
+  margin-left: 15px;
+}
+.selectItem {
+  padding: 10px 0;
+  
+}
+.selectItem:hover a {
+  text-decoration: underline;
+}
+
+
+.results::-webkit-scrollbar {
+  width: 10px;
+}
+
+.results::-webkit-scrollbar-track {
+  background-color: transparent;
+
+}
+
+.results::-webkit-scrollbar-thumb {
+  background: #f00;
+  border-radius: 2px;
+}
+/* heroesBox styles */
+
+main {
+  margin-top:200px !important;  
+}
+.heroesBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.frame {
+  margin:40px 30px;
+  width: 252px;
+  height: 369px ;
+  border : 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 1s;
+  cursor: pointer;
+}
+.heroImg {
+  position: absolute;
+  top: -20px;
+  transition: all 1s;
+}
+.frame::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  width: 216px;
+  height: 2px;
+  background-color: #fff;
+  transition: opacity 0.5s;  
+}
+.heroName {
+  position: absolute;
+  color: #fff;
+  bottom: 15px;
+}
+
+/* these styling done when hovering over the frames */
+.frame:hover .heroImg {
+  transform: translateY(20px); 
+  width: 100%;
+  height: 100%;
+}
+.frame:hover:before {
+  opacity: 0;
+}
+.frame:hover {
+  border-color: #222;
+}
+
+/* pagination styles */
+
+.pagesBox {
+  margin-bottom: 40px;
+}
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  color: #A9A9A9;
+  list-style: none;
+  width: 90%;
+  padding-right: 60px;
+}
+.pageNumber {
+  margin:0 10px;
+  width: 50px;
+  padding:3px 8px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+.pageNumber:hover, .active {
+  background-color: #A9A9A9;
+  color: #fff;
+}
+.hidden {
+  visibility: hidden;
+}
+
+.loading {
+  margin-top: 30px;
+  font-size: 52px;
+  color: antiquewhite;
+}
+
+/* Detail Page Styles */
+.detail {
+  margin: 100px 0;
+  display: flex;
+  padding: 0 280px;
+  position: relative;
+}
+.detailImg {
+  border-radius: 10px;
+  height: 450px;
+}
+.detailInf {
+  color: #fff;
+  padding-left: 50px;
+}
+.detailInf > p {
+  margin: 15px 0;
+  width: 600px;
+}
+.detailInf > ul {
+  padding-left: 10px;
+}
+.detailInf li {
+  margin-top: 5px;
+}
+
+.detailInf > button {
+  margin-top: 40px;
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.backHome {
+position: absolute;
+right: 280px;
+cursor: pointer;
+}
+
+
+
+
+/* when smaller than 1520px  */
+@media (max-width : 1520px) {
+  .container {
+      width: 100%;
+  }
+}
+/* ipad air and smaller than screen   */
+@media (max-width : 820px) {
+  header {
+      margin-top: 0 !important;
+  }
+  main {
+      margin-top: 80px !important; 
+  }
+  .frame {
+      width: 189px;
+      height: 277px;
+  }
+  .heroImg,
+  .frame::before {
+      width: 90%;
+  }
+  .pagination {
+      width: 100%;
+      padding-right: 0px;
+      justify-content: center;
+  }
+  .pageNumber {
+      margin: 0 ;
+  }
+  
+}
+/* iphone xr and smaller than screen size  */
+
+@media (max-width : 414px) {
+    .frame {
+        width: 168px;
+        height: 240px;
+    }
+    .heroImg,
+    .frame::before {
+        width: 80%;
+    }
+}

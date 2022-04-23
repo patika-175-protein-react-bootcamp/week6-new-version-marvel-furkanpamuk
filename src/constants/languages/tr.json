@@ -1,0 +1,10 @@
+{
+    "search": {
+        "find a character" : "Bir karakter ara", 
+        "input type" : " bir karakter adı yazınız"
+    },
+    "detail": {
+        "stories" : "Hikayeler",
+        "info" : "Daha Fazla Bilgi"
+    }
+}

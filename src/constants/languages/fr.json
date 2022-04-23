@@ -1,0 +1,10 @@
+{
+    "search": {
+        "find a character" : "Trouver un personnage", 
+        "input type" : "taper un nom de personnage "
+    },
+    "detail": {
+        "stories" : "Histoires",
+        "info" : "Plus d'information"
+    }
+}

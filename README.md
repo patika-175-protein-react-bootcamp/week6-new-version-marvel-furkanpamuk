@@ -1,6 +1,10 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-c66648af7eb3fe8bc4f294546bfd86ef473780cde1dea487d3c4ff354943c9ae.svg)](https://classroom.github.com/online_ide?assignment_repo_id=7704561&assignment_repo_type=AssignmentRepo)
 Week6 Marvel Exercise New Version
 
+#Link Link
+
+https://marvel-heroes-fp.vercel.app/
+
 Özelikle dikkat etmenizi istediğimiz noktalar
 
 1. Auto complete (Arama alanı için)
