@@ -34,7 +34,7 @@ function Detail({ selectHero }) {
               )
             }
           </ul>
-          <button><a href={selectHero.urls[0].url}>{t('detail.info')} </a></button>
+          <button><a target="_blank" href={selectHero.urls[0].url} >{t('detail.info')} </a></button>
         </div>
 
       </div>
