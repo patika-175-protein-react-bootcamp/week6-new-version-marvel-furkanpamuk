@@ -1,4 +1,5 @@
-
+### :zap: Live 
+[Marvel Heroes](https://marvel-heroes-fpamuk.vercel.app/)
 # Week 6 Assignment (Marvel Heroes) [tr]
  > Bu projede her sayfada 20 marvel kahramanı listelendi. Seçilen sayfalardaki kahramanlar session storage'e kaydedildi ve bu sayfalara tekrar tıklanıldığında veriler session storage'den çekildi. Böylece api gereksiz yere meşgul edilmedi. 
  
