@@ -1,8 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
-import HomeSvg from '../static/img/HomeSvg'
+import HomeSvg from '../constants/img/HomeSvg'
 import { Link } from 'react-router-dom'
-import i18n from '../i18next'
 import { useTranslation } from 'react-i18next';
 
 

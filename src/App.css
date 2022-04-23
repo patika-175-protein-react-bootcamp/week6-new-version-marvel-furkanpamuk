@@ -51,6 +51,7 @@ header :last-child {
 
 /* SearchBar styles */
 .searchAndLang {
+  margin-top: 50px;
   padding: 0 280px;
 }
 .searchHeader {
@@ -75,6 +76,9 @@ header :last-child {
   display: flex;
   margin-left: 330px;
   cursor: pointer;
+}
+.langBox > div:hover {
+  opacity: 0.5;
   
 }
 .results {
@@ -208,6 +212,7 @@ main {
 
 .loading {
   margin-top: 30px;
+  text-align: center;
   font-size: 52px;
   color: antiquewhite;
 }

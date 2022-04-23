@@ -2,12 +2,12 @@ import React from 'react'
 
 function Pagination({ currentPage, setCurrentPage, totalPage }) {
 
-    // Sayfa numara düzenleri  
+    // Page numbering schemes  
     const firstOrder = [1, 2, 3, 4, '...', totalPage];
     const secondOrder = [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPage];
     const thirdOrder = [1, '...', totalPage - 3, totalPage - 2, totalPage -1, totalPage];
 
-    // Bulunulan sayfa ve '...' dışındaki sayfalara tıklanıldığında CurrentPage' e yeni sayfa numarası set edildi.  
+    // When clicking on pages other than current page and '...', a new page number is set to CurrentPage.  
     function handleSetPage(value) {
         if (currentPage !== value && value !== '...') {
             setCurrentPage(value);

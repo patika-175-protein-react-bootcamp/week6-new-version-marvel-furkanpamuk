@@ -1,6 +1,6 @@
 import React from 'react'
-import svg1 from '../static/img/image1.svg'
-import svg2 from '../static/img/image2.svg'
+import svg1 from '../constants/img/image1.svg'
+import svg2 from '../constants/img/image2.svg'
 
 
 function Header() {

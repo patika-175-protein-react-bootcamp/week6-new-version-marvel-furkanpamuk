@@ -1,17 +1,19 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useState, useEffect } from "react";
+import axios from "axios";
+
 import Detail from '../pages/Detail'
 import Homepage from '../pages/Homepage'
 
 
 function Rooter() {
 
-    // api üyeliği ile verilen public key ve private key'den oluşturulan hash
+    // Hash generated from public key and private key given with api membership
     const hash = '88d10a5a24ea797dd05d5103ca22a94c';
-    const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(true); 
 
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [totalPage, setTotalPage] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [query, setQuery] = useState('')
@@ -22,18 +24,17 @@ function Rooter() {
         const ssData = sessionStorage.getItem(`page-${currentPage}`);
         let data;
 
-        //session storage'dan o sayfa adında gelen veri kontrol edildi varsa bu veri data'ya yazıldı yoksa axios ile veri çekildi ve session storage'e yazıldı.
+        //The data coming from session storage in that page name is checked, if there is, this data is written to data, otherwise, data is taken with axios and written to session storage.
         if (ssData != null) {
             const json = JSON.parse(ssData);
             data = json;
         }
         else {
-            const result = await fetch(`https://gateway.marvel.com/v1/public/characters?ts=1&apikey=6fc2d005ff2338e7833c49790755ed4c&hash=${hash}&offset=${20 * currentPage - 20}`)
-                .then(res => res.json())
-                .then(data2 => data = data2.data)
+            const result = await axios(`http://gateway.marvel.com/v1/public/characters?ts=1&apikey=6fc2d005ff2338e7833c49790755ed4c&hash=${hash}&offset=${20 * currentPage - 20}`);
 
+            sessionStorage.setItem(`page-${currentPage}`, JSON.stringify(result.data.data));
 
-            sessionStorage.setItem(`page-${currentPage}`, JSON.stringify(data));
+            data = result.data.data;
         }
 
         setItems(data.results);
@@ -44,14 +45,13 @@ function Rooter() {
 
         let data;
 
-        const result = await fetch(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=6fc2d005ff2338e7833c49790755ed4c&hash=${hash}`)
-            .then(res => res.json())
-            .then(data2 => data = data2.data)
-
+        const result = await axios(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=6fc2d005ff2338e7833c49790755ed4c&hash=${hash}`)
+            
+        data = result.data.data
         setQueryRes(data.results);
-        
+
     }
-    //currentPage her değiştiğinde fetch fonksiyonu çalıştırıldı.
+    //The fetch function was run every time the currentPage changed.
     useEffect(() => {
         if (!query) {
             getCharacters();
@@ -64,20 +64,20 @@ function Rooter() {
     return (
         <Routes>
             <Route path='/' element={
-                <Homepage 
-                loading = {loading}
-                items = {items}
-                setQuery = {setQuery}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                totalPage={totalPage}
-                queryRes = {queryRes}
-                selectHero = {selectHero}
-                setSelectHero = {setSelectHero}
+                <Homepage
+                    loading={loading}
+                    items={items}
+                    setQuery={setQuery}
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    totalPage={totalPage}
+                    queryRes={queryRes}
+                    selectHero={selectHero}
+                    setSelectHero={setSelectHero}
                 />
             } >
-            </Route> 
-            <Route path='detail' element={<Detail selectHero = {selectHero} />} ></Route>
+            </Route>
+            <Route path='detail' element={<Detail selectHero={selectHero} />} ></Route>
         </Routes>
     )
 }

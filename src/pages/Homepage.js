@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from "axios";
 
 import Header from "../components/Header";
 import SearchBar from '../components/SearchBar';
@@ -14,15 +13,16 @@ function Homepage({loading, items, setQuery, currentPage, setCurrentPage, totalP
         <>
             <Header />
 
-            {
-                //loading durumu kullanıcıya bildirildi.
-                loading && <div className="loading">Be patient :) Heroes are coming</div>
-            }
+            
             <SearchBar 
             queryRes = {queryRes} search={q => setQuery(q)}
             selectHero = {selectHero}
             setSelectHero = {setSelectHero}
             />
+            {
+                //The loading status is reported to the user.
+                loading && <div className="loading">Be patient :) Heroes are coming</div>
+            }
             <HeroTable 
             items={items} 
             selectHero = {selectHero}
